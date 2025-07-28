@@ -1,5 +1,5 @@
 import React from 'react'
-import type { SimplifiedAlbumObject } from '../types/spotify'
+import type { SimplifiedAlbumObject } from '../../types/spotify'
 
 interface AlbumCardProps {
     item: SimplifiedAlbumObject
