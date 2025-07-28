@@ -1,0 +1,20 @@
+[
+    {
+        "image": "src/assets/kaiAngel.jpg",
+        "name": "Kai Angel",
+        "links": [
+            { "social": "Telegram", "url": "https://t.me/sektakai" },
+            { "social": "Instagram", "url": "" },
+            { "social": "TikTok", "url": "" }
+        ]
+    },
+        {
+        "image": "src/assets/9mice.jpg",
+        "name": "9mice",
+        "links": [
+            { "social": "Telegram", "url": "https://t.me/the9mice" },
+            { "social": "Instagram", "url": "" },
+            { "social": "TikTok", "url": "" }
+        ]
+    }
+]

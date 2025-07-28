@@ -1,0 +1,52 @@
+interface ImageObject {
+  url: string;
+  height: number | null;
+  width: number | null;
+}
+
+interface ExternalUrls {
+  spotify: string;
+}
+
+interface SimplifiedArtistObject {
+  external_urls: ExternalUrls;
+  href: string;
+  id: string;
+  name: string;
+  type: "artist";
+  uri: string;
+}
+
+interface Restrictions {
+  reason: string;
+}
+
+export interface SimplifiedAlbumObject {
+  album_type: "album" | "single" | "compilation";
+  total_tracks: number;
+  available_markets: string[];
+  external_urls: ExternalUrls;
+  href: string;
+  id: string;
+  images: ImageObject[];
+  name: string;
+  release_date: string;
+  release_date_precision: "year" | "month" | "day";
+  restrictions?: Restrictions;
+  type: "album";
+  uri: string;
+  artists: SimplifiedArtistObject[];
+  album_group?: "album" | "single" | "compilation" | "appears_on";
+}
+
+export interface SpotifyAlbumsResponse {
+  artistAlbums: {
+    href: string;
+    limit: number;
+    next: string | null;
+    offset: number;
+    previous: string | null;
+    total: number;
+    items: SimplifiedAlbumObject[];
+  }
+}

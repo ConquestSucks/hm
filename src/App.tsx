@@ -1,13 +1,14 @@
+import { Outlet } from 'react-router-dom'
 import './App.css'
-import Loading from './components/Loading'
+import NavMenu from './components/nav/NavMenu'
 
-function App() {
-
-  return (
-    <>
-      <Loading />
-    </>
-  )
+const App = () => {    
+    return (
+        <>
+        <NavMenu />
+        <Outlet />
+        </>
+    )
 }
 
 export default App
