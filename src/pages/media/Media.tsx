@@ -1,5 +1,5 @@
 import type { Artist } from "../../types/artist"
-import ArtistData from '../../constants/artustData.json'
+import ArtistData from '../../constants/artistData'
 import ArtistCard from "../../components/media/ArtistCard"
 
 const Media = () => {

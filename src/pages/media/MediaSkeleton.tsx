@@ -1,4 +1,4 @@
-import ArtistData from '../../constants/artustData.json'
+import ArtistData from '../../constants/artistData'
 import ArtistCardSkeleton from '../../components/media/ArtistCardSkeleton'
 
 const MediaSkeleton = () => {
