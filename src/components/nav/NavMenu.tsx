@@ -18,7 +18,7 @@ const NavMenu = () => {
     ];
 
     return (
-        <div className="flex h-[80px] font-viperr">
+        <div className="flex h-[80px]">
             <nav className='flex items-center grow py-[20px] px-[27px] text-center font-extralight md:text-2xl md:justify-center md:gap-5'>
                 {/* Мобильное меню */}
                 <div className={`md:hidden fixed top-0 left-0 w-full h-screen bg-black z-10 transition-transform duration-300 ease-in-out ${isOpen ? 'translate-x-0' : '-translate-x-full'}`}>
@@ -31,7 +31,7 @@ const NavMenu = () => {
                 
                 {/* Кнопка бургер меню */}
                 <button className="burger flex w-1/3 md:hidden z-20" onClick={toggleMenu}>
-                    <Menu className='fill-white w-10 h-10' />
+                    <Menu className='fill-white w-10 h-10 stroke-white' />
                 </button>
                 
                 {/* Десктопное меню */}
