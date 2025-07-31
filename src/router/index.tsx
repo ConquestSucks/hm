@@ -3,10 +3,12 @@ import App from "../App"
 import Tour from "../pages/Tour";
 import Home from "../pages/Home";
 import { Suspense } from "react";
-import MusicSkeleton from "../pages/music/MusicSkeleton";
 import { MusicLazy } from "../pages/music/Music.lazy";
 import { MediaLazy } from "../pages/media/Media.lazy";
 import MediaSkeleton from "../pages/media/MediaSkeleton";
+import DisplayAlbumSkeleton from "../components/music/album-details/DisplayAlbumSkeleton";
+import { AlbumDetailsLazy } from "../components/music/album-details/AlbumDetails.Lazy";
+import RouterBasedMusicFallback from "../components/music/RouterBasedMusicFallback";
 const router = createBrowserRouter([
     {
         path: "/",
@@ -22,9 +24,17 @@ const router = createBrowserRouter([
             },
             {
                 path: '/music',
-                element: <Suspense fallback={<MusicSkeleton/>}>
-                    <MusicLazy/>
-                </Suspense>
+                element: <Suspense fallback={<RouterBasedMusicFallback />}>
+                    <MusicLazy />
+                </Suspense>,
+                children: [
+                    {
+                        path: ':id',
+                        element: <Suspense fallback={<DisplayAlbumSkeleton />}>
+                            <AlbumDetailsLazy />
+                        </Suspense>,
+                    }
+                ]
             },
             {
                 path: '/media',

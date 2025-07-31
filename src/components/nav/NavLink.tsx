@@ -1,9 +1,14 @@
+import { Link } from "react-router-dom";
 import type { NavItem } from "../../types/navItem";
 
-const NavLink: React.FC<NavItem> = ({ href, label }) => (
-    <button className="text-white">
-        <a href={href}>{label}</a>
-    </button>
+interface Props extends NavItem {
+    onClick?: () => void;
+}
+
+const NavLink: React.FC<Props> = ({ href, label, onClick }) => (
+    <Link to={href} className="text-white" onClick={onClick}>
+        {label}
+    </Link>
 );
 
 export default NavLink;

@@ -1,48 +1,30 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import DisplayAlbums from "../../components/music/DisplayAlbums"
 import MusicSkeleton from "./MusicSkeleton"
-import type { SimplifiedAlbumObject } from "../../types/spotify";
-import { getArtistAlbums } from "../../api";
-import { kai, mice } from "../../constants/artistId";
+import { Outlet, useParams } from "react-router-dom";
+import { albumStore } from "../../store/albumStore";
+import { observer } from "mobx-react-lite";
 
-const Music = () => {
-    const [artistAlbums, setArtistAlbums] = useState<SimplifiedAlbumObject[]>();
-    const [isLoading, setIsloading] = useState<boolean>(true)
-
+const Music = observer(() => {
+    const params = useParams();
+    
     useEffect(() => {
-        async function fetchAlbums() {
-            setIsloading(true)
+        if (!params.id) albumStore.fetchAlbums();
+    }, [params.id]);
 
-            try {
-                const kaiAlbums = await getArtistAlbums(kai);
-                const miceAlbums = await getArtistAlbums(mice)
-                const albums = [
-                    ...kaiAlbums.artistAlbums.items,
-                    ...miceAlbums.artistAlbums.items
-                ]
-
-                const filteredAlbums = albums.filter((album, index, self) => index === self.findIndex((item) => item.name === album.name)) // delete duplicate
-
-                setArtistAlbums(filteredAlbums)
-            } catch (error) {
-                console.error('Error fetching albums:', error)
-            } finally {
-                setIsloading(false)
-            }
-        };
-
-        fetchAlbums();
-    }, []);
+    if (params.id) {
+        return <Outlet />;
+    }
 
     return (
         <div className="overflow-y-auto h-full no-scrollbar pb-10">
-            {isLoading ? (
+            {albumStore.isLoading ? (
                 <MusicSkeleton />
             ) : (
-                artistAlbums && <DisplayAlbums albums={artistAlbums} />
+                albumStore.albums && <DisplayAlbums albums={albumStore.albums} />
             )}
         </div>
     )
-}
+})
 
 export default Music
