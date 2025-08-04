@@ -7,7 +7,7 @@ interface TrackItemProps {
 
 const TrackItem: React.FC<TrackItemProps> = ({ track }) => {
     return (
-        <div className='flex w-full max-h-fit justify-between items-center grow rounded-md px-4 py-2 hover:bg-[#1E1E1E] active:bg-[#1E1E1E]'>
+        <div className='flex w-full justify-between items-center rounded-md px-4 py-2 hover:bg-[#1E1E1E] active:bg-[#1E1E1E]'>
             <div className="flex gap-5 items-center">
                 <div className="rounded">{track.track_number}</div>
                 <div className="flex flex-col gap-1">
