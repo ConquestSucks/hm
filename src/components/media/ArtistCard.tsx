@@ -15,7 +15,7 @@ const ArtistCard: React.FC<AstistcardProps> = ({ artist }) => {
                 <h1 className="font-viperr font-extrabold w-fit text-2xl md:text-5xl lg:text-7xl text-center">{artist.name}</h1>
             </div>
             <div className="flex flex-col lg:gap-5 bg-gradient-to-r lg:bg-gradient-to-br from-slate-900 to-slate-600 rounded-lg p-5">
-                {artist.links.map((link) => <span>{link.social} - <a href={link.url}>{link.url}</a></span>)}
+                {artist.links.map((link) => <span>{link.social} - @<a href={link.url}  className="hover:underline active:underline decoration-dotted">{link.tag}</a></span>)}
             </div>
         </div>
     )

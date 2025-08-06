@@ -23,7 +23,7 @@ const NavMenu = () => {
     const mobileLinks: NavItem[] = [...leftLinks, ...rightLinks]
 
     return (
-        <div className="flex h-[80px]">
+        <div className="flex min-h-[80px]">
             <nav className='flex items-center grow py-[20px] px-[27px] text-center font-extralight md:text-2xl md:justify-center md:gap-5'>
                 {/* Мобильное меню */}
                 <MobileMenu links={mobileLinks} isOpen={isOpen} onClick={closeMenu}/>
