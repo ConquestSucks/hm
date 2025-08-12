@@ -30,7 +30,7 @@ const router = createBrowserRouter([
                 children: [
                     {
                         path: ':id',
-                        element: <Suspense fallback={<DisplayAlbumSkeleton />}>
+                        element: <Suspense fallback={<div className="flex justify-center overflow-y-auto no-scrollbar grow-1"><DisplayAlbumSkeleton /></div>}>
                             <AlbumDetailsLazy />
                         </Suspense>,
                     }

@@ -14,7 +14,7 @@ const AlbumDetailsHeader: React.FC<AlbumDetailsHeaderProps> = ({ album }) => {
                     <span className="rounded font-medium">{album.album_type}</span>
                     <span className="rounded-md font-extrabold text-2xl md:text-5xl lg:text-8xl">{album.name}</span>
                     <div className="rounded text-md mt-5">
-                        {album.artists.map((artist)=> <span className="font-bold">{artist.name} • </span>)}
+                        {album.artists.map((artist, i)=> <span key={i} className="font-bold">{artist.name} • </span>)}
                         <span className="text-gray-300">{album.release_date.slice(0,4)} • </span>
                         <span>{album.total_tracks} track(s)</span>
                     </div>
