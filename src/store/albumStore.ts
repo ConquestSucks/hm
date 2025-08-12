@@ -33,6 +33,8 @@ class AlbumStore {
     }
 
     async fetchAlbums() {
+        if (this.isLoading || this.albums.length > 0) return;
+
         this.setLoading(true)
 
         try {
