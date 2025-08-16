@@ -61,7 +61,7 @@ class AlbumStore {
             const fullAlbom = await getAlbum(spotifyId)
             this.currentAlbum = fullAlbom
         } catch (error) {
-            console.log(error)
+            console.error(error)
         } finally {
             this.setLoading(false)
         }
