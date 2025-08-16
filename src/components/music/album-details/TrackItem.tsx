@@ -6,8 +6,9 @@ interface TrackItemProps {
 }
 
 const TrackItem: React.FC<TrackItemProps> = ({ track }) => {
+    console.log(track.is_playable)
     return (
-        <div className='flex w-full justify-between items-center rounded-md px-4 py-2 hover:bg-[#1E1E1E] active:bg-[#1E1E1E]'>
+        <a href={track.external_urls.spotify} target="_blank" className='flex w-full justify-between items-center rounded-md px-4 py-2 hover:bg-[#1E1E1E] active:bg-[#1E1E1E]'>
             <div className="flex gap-5 items-center">
                 <div className="rounded w-6 flex justify-center"><span>{track.track_number}</span></div>
                 <div className="flex flex-col gap-1">
@@ -24,7 +25,7 @@ const TrackItem: React.FC<TrackItemProps> = ({ track }) => {
                 </div>
             </div>
             <span className="rounded text-md text-gray-300">{formatTrackDuration(track.duration_ms)}</span>
-        </div>
+        </a>
     )
 }
 
